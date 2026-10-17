@@ -1,162 +1,136 @@
-ShopSpree — Customer Cohort & Retention Analysis
+# ShopSpree – E-Commerce Cohort Analysis Dashboard
 
-"ShopSpree Logo" (assets/shopspree-logo.png)
+An e-commerce cohort analysis project using **SQL, Power BI, and Excel** to analyze customer retention, cohort performance, and repeat purchasing behavior.
 
-An end-to-end data analytics portfolio project using SQL and Power BI to explore customer retention, cohort behaviour, revenue, orders, and acquisition-channel performance.
+## 📊 Dashboard Preview
 
-📊 Dashboard Preview
+![ShopSpree Cohort Analysis Dashboard](ShopSphere_Cohort_Analysis_Dashboard.png)
 
-"ShopSpree Cohort Analysis Dashboard" (dashboard.png)
+## 📌 Project Overview
 
-Power BI dashboard showing customer and revenue KPIs, acquisition-channel comparisons, monthly revenue trends, and cohort retention.
+This project analyzes customer purchasing behavior for **ShopSpree**, an e-commerce business, using cohort analysis. The objective is to understand how customer retention changes over time, identify purchasing patterns, and generate actionable insights that can support data-driven business decisions.
 
-📌 Project Overview
+The project uses **SQL** for data preparation and cohort analysis and **Power BI** for interactive data visualization and reporting.
 
-ShopSpree is a fictional subscription-commerce business. This project analyses how customer activity and revenue change after signup and how outcomes differ across acquisition channels and signup plans.
+## 🎯 Business Objectives
 
-The project combines SQL-based data validation and cohort calculations with a Power BI dashboard to communicate the results.
+- Analyze customer retention across different acquisition cohorts.
+- Understand how customer purchasing behavior changes over time.
+- Identify high-performing and low-performing customer cohorts.
+- Evaluate repeat purchasing behavior and customer engagement.
+- Present key metrics through an interactive Power BI dashboard.
+- Generate insights to support customer retention strategies.
 
-«Note: The dataset is synthetic and created for portfolio practice. It does not contain real ShopSpree customer data.»
+## 🛠️ Tools & Technologies
 
-🎯 Business Questions
+| Tool | Purpose |
+|---|---|
+| **SQL** | Data preparation, transformation, aggregation, and cohort analysis |
+| **Power BI** | Dashboard development and data visualization |
+| **Excel** | Supporting data analysis and validation, where applicable |
+| **CSV** | Dataset storage and data import |
+| **GitHub** | Project documentation and version control |
 
-- How many customers are represented in each signup-month cohort?
-- What percentage of each cohort remains active in subsequent months?
-- How do customer activity and retention change over time?
-- Which acquisition channels contribute the most revenue and orders?
-- How does revenue per customer vary by acquisition channel?
-- How can cohort patterns inform customer-retention and acquisition strategies?
+## 📂 Project Structure
 
-🛠️ Tools & Technologies
-
-- SQL (PostgreSQL): Data validation, cohort sizing, retention calculations, revenue aggregation, and channel comparisons.
-- Power BI: KPI cards, trend charts, channel comparisons, slicers, and cohort-retention heatmaps.
-- CSV: Dataset storage and data preparation.
-- Data Analytics: Exploratory analysis, metric interpretation, and business recommendations.
-
-📈 Dashboard Highlights
-
-The Power BI dashboard includes:
-
-- KPI Cards: Total customers, total revenue, and total orders.
-- Monthly Revenue Analysis: Revenue trends across months since signup.
-- Customer Acquisition Analysis: Customer comparisons across acquisition channels.
-- Revenue by Channel: Identifying channels contributing to total revenue.
-- Revenue per Customer: Comparing revenue performance across channels.
-- Cohort Retention Heatmap: Analysing customer activity across signup cohorts and months since signup.
-- Interactive Filters: Cohort month, acquisition channel, and subscription plan.
-
-The figures shown in the dashboard are based on the synthetic dataset and should not be interpreted as real business performance.
-
-📂 Repository Structure
-
+```text
 ShopSpree-Cohort-Analysis/
+│
 ├── README.md
-├── assets/
-│   ├── dashboard-preview.png
-│   └── shopspree-logo.png
-├── data/
-│   └── cohort_analysis_synthetic_dataset.csv
-└── sql/
-    └── cohort_analysis.sql
+├── cohort_Analysis_synthetic_dataset.csv
+├── ShopSphere_Cohort_Analysis.sql
+├── ShopSphere_Cohort_Analysis_Dashboard.png
+└── Cohort_Analysis_Dashboard.pbix
+```
 
-The Power BI ".pbix" file can be added separately to allow users to download and interact with the report.
+## 📈 Key Analysis Areas
 
-🗃️ Dataset Description
+### 1. Customer Cohort Identification
 
-The dataset contains one row per customer per calendar month in which activity was recorded. It is an activity-only dataset, not a complete customer-by-month panel.
+Customers are grouped into cohorts based on their first purchase or initial activity period, according to the dataset and the analysis definition.
 
-Column| Description
-"customer_id"| Synthetic customer identifier
-"signup_date"| Customer signup date
-"cohort_month"| Calendar month of signup
-"activity_month"| Calendar month with recorded activity
-"months_since_signup"| Number of calendar months since signup
-"acquisition_channel"| Customer acquisition source
-"plan_at_signup"| Subscription plan recorded at signup
-"country"| Synthetic country value
-"active"| Activity indicator
-"sessions"| Sessions recorded during the month
-"orders"| Orders recorded during the month
-"revenue"| Revenue recorded during the month in fictional currency units
+### 2. Customer Retention Analysis
 
-Acquisition Channels
+Customer activity is tracked across subsequent periods to measure retention and compare behavior between cohorts.
 
-The dataset includes the following acquisition channels:
+### 3. Repeat Purchase Behavior
 
-- Organic
-- Google Ads
-- Meta Ads
-- Referral
-- Email
+The analysis examines repeat purchasing patterns to understand whether customers return to make additional purchases after their initial transaction.
 
-🔍 Methodology
+### 4. Cohort Comparison
 
-1. Data Validation
+Different customer cohorts are compared to identify variations in customer engagement and retention over time.
 
-SQL queries are used to examine row counts, missing key fields, duplicate customer-month records, and consistency between cohort month, activity month, and months since signup.
+### 5. Dashboard Visualization
 
-2. Cohort Identification
+The Power BI dashboard presents cohort metrics and retention patterns through visualizations that make trends easier to understand.
 
-Customers are grouped according to their signup month. The cohort size is calculated using distinct customers observed at month zero.
+## 🧮 Methodology
 
-3. Retention Analysis
+1. **Data Import:** Import the e-commerce dataset from CSV into the SQL environment.
+2. **Data Validation:** Check data types, missing values, duplicate records, and date consistency.
+3. **Data Preparation:** Prepare and validate customer and transaction data for analysis.
+4. **Cohort Assignment:** Identify each customer's cohort using the selected first-activity date.
+5. **Retention Calculation:** Track customer activity across periods relative to the cohort's starting period.
+6. **SQL Analysis:** Aggregate cohort metrics and prepare the results for reporting.
+7. **Power BI Dashboard:** Visualize cohort performance and retention metrics using appropriate charts, tables, and KPIs.
+8. **Business Interpretation:** Interpret the analysis to identify patterns and potential business actions.
 
-Retention is calculated by dividing the number of distinct customers active at a given cohort age by the original number of customers in that cohort.
+## 📊 Key Performance Indicators (KPIs)
 
-Retention Rate = (Active Customers at Month N / Original Cohort Size) × 100
+## 📊 Key Performance Indicators (KPIs)
 
-4. Revenue Analysis
+The Power BI dashboard highlights the following key performance indicators to summarize customer behavior, revenue performance, and purchasing activity.
 
-Revenue and orders are aggregated by cohort month and months since signup to examine how customer value changes over time.
+- **Total Customers:** 10K
+- **Total Revenue:** ₹45.04M
+- **Total Orders:** 33K
+  
+### Retention Rate Formula
 
-5. Acquisition Channel Comparison
+\[
+\text{Retention Rate (\%)} =
+\frac{\text{Customers Active in a Later Period}}
+{\text{Customers in the Original Cohort}}
+\times 100
+\]
 
-Acquisition channels are compared using customer activity, retention, revenue, and revenue per original cohort customer.
+*Note: Metric definitions depend on the dataset structure and the calculations implemented in the SQL queries and Power BI dashboard.*
 
-6. Dashboard Development
+## 💡 Business Value
 
-The analytical results are presented through Power BI KPI cards, comparison charts, lifecycle trends, interactive filters, and a cohort-retention heatmap.
+Cohort analysis helps an e-commerce business move beyond aggregate sales figures to understand how customer behavior evolves over time.
 
-⚠️ Key Analytical Considerations
+The findings can support decisions related to:
 
-- The dataset is synthetic and intended for learning and portfolio demonstration.
-- Missing customer-month records indicate that activity was not recorded for that customer in that month. They should not automatically be treated as data-quality errors.
-- Retention denominators must use the original cohort size from month zero.
-- Revenue and order totals reflect the supplied synthetic records.
-- Channel comparisons are descriptive and do not establish causation.
-- The SQL script uses PostgreSQL syntax; other database systems may require modifications.
+- Customer retention and re-engagement campaigns.
+- Repeat purchase and customer loyalty initiatives.
+- Customer experience improvements.
+- Identification of cohorts with stronger long-term engagement.
+- Marketing optimization and customer lifecycle strategies.
 
-🚀 How to Use This Project
+## 🚀 How to Explore the Project
 
 1. Clone or download this repository.
-2. Create a PostgreSQL database.
-3. Import "data/cohort_analysis_synthetic_dataset.csv" into a table named "cohort_activity".
-4. Verify that column names and data types match the dataset structure.
-5. Run the SQL queries in "sql/cohort_analysis.sql".
-6. Review the validation results before interpreting the analytical outputs.
-7. Open the Power BI report, if included, and refresh the data and visuals as required.
+2. Open `cohort_Analysis_synthetic_dataset.csv` to review the dataset.
+3. Explore `ShopSphere_Cohort_Analysis.sql` to review the SQL analysis.
+4. Open `Cohort_Analysis_Dashboard.pibx` in Power BI Desktop, after correcting the file extension if necessary.
+5. View `ShopSphere_Cohort_Analysis_Dashboard.png` for a preview of the dashboard.
 
-💡 Potential Improvements
+## 📁 Project Deliverables
 
-- Add an executive summary highlighting the most important findings.
-- Compare month-one and month-three retention across acquisition channels.
-- Add automated data-quality checks.
-- Include a reproducible database import script.
-- Publish the editable Power BI report.
-- Develop recommendations and experiments based on observed cohort patterns.
+- **Dataset:** Synthetic e-commerce customer and transaction data.
+- **SQL Script:** Queries for data preparation and cohort analysis.
+- **Power BI Dashboard:** Visual representation of cohort performance and retention metrics.
+- **Dashboard Preview:** Image of the Power BI report.
+- **Documentation:** Project objectives, methodology, KPIs, and analytical approach.
 
-📎 Project Files
+## 👩‍💻 Author
 
-- "SQL Analysis" (sql/cohort_analysis.sql)
-- "Synthetic Dataset" (data/cohort_analysis_synthetic_dataset.csv)
-- "Dashboard Preview" (dashboard.png)
-- "ShopSpree Logo" (assets/shopspree-logo.png)
+**Sneha**
+
+Aspiring Data Analyst | SQL | Power BI | Excel | Data Visualization
 
 ---
 
-Author: Sneha Nainani
-
-Project Type: Data Analytics Portfolio Project
-
-Tools: PostgreSQL | Power BI | CSV
+*This project was developed for analytical learning and portfolio demonstration. The dataset is synthetic, and the findings should be interpreted in the context of the dataset and the implemented analysis.*
